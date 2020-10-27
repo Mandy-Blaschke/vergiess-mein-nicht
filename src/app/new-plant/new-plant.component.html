@@ -1,0 +1,32 @@
+<div class="content">
+
+  <div class="form">
+
+    <label>
+      Raum:
+      <input [(ngModel)]="newPlantRoom" type="text" placeholder="Wo steht die Pflanze?">
+    </label>
+
+    <label>
+      Bezeichnung:
+      <input [(ngModel)]="newPlantName" type="text" placeholder="Welche Pflanze ist das?">
+    </label>
+
+    <label>
+      Intervall:
+      <input [(ngModel)]="newPlantInterval" type="number" placeholder="Wie oft gießt du die Pflanze?">
+    </label>
+
+    <label>
+      Datum:
+      <input [(ngModel)]="newPlantStartDate" type="date">
+    </label>
+
+  </div>
+
+  <div class="button-box">
+    <app-button (click)="service.cancelNewPlant()">Abbrechen</app-button>
+    <app-button (click)="saveNewPlant()">Speichern</app-button>
+  </div>
+
+</div>

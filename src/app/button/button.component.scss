@@ -1,0 +1,19 @@
+@use 'src/main-styles';
+
+button {
+  min-width: 133px;
+  outline: none;
+  background-color: main-styles.$action-color;
+  color: whitesmoke;
+  font-family: main-styles.$header-font;
+  font-size: 26px;
+  padding: 15px 30px;
+  border: none;
+  box-shadow: 0 0 8px rgba(black, 0.8);
+  border-top-right-radius: 8px;
+  border-top-left-radius: 8px;
+
+  &:hover {
+    cursor: pointer;
+  }
+}

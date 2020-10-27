@@ -1,0 +1,56 @@
+@use 'src/main-styles';
+
+.content {
+  height: 100%;
+  margin: 220px auto;
+  min-width: 350px;
+  max-width: 850px;
+
+  .form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(black, 0.3);
+
+    label {
+      min-width: 300px;
+      max-width: 600px;
+      display: flex;
+      flex-direction: column;
+      margin: 10px 0;
+      font-weight: bolder;
+
+      input {
+        font-family: main-styles.$main-font;
+        padding: 5px;
+        font-size: 1.1rem;
+        border: none;
+        background-color: main-styles.$input-color;
+        border-radius: 8px;
+        outline: none;
+
+        &:focus {
+          box-shadow: 0 0 4px main-styles.$action-color;
+        }
+
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+  .button-box {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
+
+    app-button {
+      margin: 0 10px;
+    }
+  }
+}

@@ -1,0 +1,21 @@
+<div class="content" *ngFor="let plant of service.plants">
+
+  <div class="row">
+
+    <div class="row-item">{{plant.room}}</div>
+    <div class="row-item">{{plant.name}}</div>
+
+    <div class="watering-date row-item">
+      <div>{{service.getWeekday(plant.startDate)}}</div>
+      <div>{{service.formatDate(plant.startDate)}}</div>
+    </div>
+
+    <div class="row-item">
+      <img (click)="service.setNewInterval(plant)" src="assets/watering-can-pink.png" class="symbol">
+      <img (click)="editPlant(plant)" class="symbol" src="assets/settings.png">
+      <img (click)="service.deletePlant(plant.id)" src="assets/delete.png" class="symbol">
+    </div>
+
+  </div>
+
+</div>

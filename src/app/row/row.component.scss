@@ -1,0 +1,33 @@
+.content {
+  min-width: 350px;
+  max-width: 850px;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+
+  .row {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: white;
+    padding: 15px 20px;
+    border-radius: 8px;
+    margin: 10px 0;
+    box-shadow: 0 0 10px rgba(black, 0.3);
+
+    .symbol {
+      width: 35px;
+      margin: 0 12px;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    .row-item {
+      margin: 0 10px;
+      width: 25%;
+    }
+  }
+}
