@@ -20,10 +20,14 @@ export class EditPlantComponent implements OnInit {
   ngOnInit(): void {
     this.editId = this.activatedRoute.snapshot.paramMap.get('id');
     const plantToEdit = this.service.getPlantById(this.editId);
-    this.editRoom = plantToEdit.room;
-    this.editName = plantToEdit.name;
-    this.editInterval = plantToEdit.interval;
-    this.editStartDate = this.service.dateToInputDateValue(plantToEdit.startDate);
+    if (plantToEdit !== undefined) {
+      this.editRoom = plantToEdit.room;
+      this.editName = plantToEdit.name;
+      this.editInterval = plantToEdit.interval;
+      this.editStartDate = this.service.dateToInputDateValue(plantToEdit.startDate);
+    } else {
+      this.router.navigate(['start']);
+    }
   }
 
 
