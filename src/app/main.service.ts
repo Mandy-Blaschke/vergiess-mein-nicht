@@ -10,22 +10,7 @@ export class MainService {
     this.loadData();
   }
 
-  plants: Plant[] = [
-    {
-      room: 'Wohnzimmer',
-      name: 'Palme',
-      interval: 2,
-      startDate: new Date(),
-      id: this.createId(),
-    },
-    {
-      room: 'Schlafzimmer',
-      name: 'Efeu',
-      interval: 7,
-      startDate: new Date(2020, 1, 23),
-      id: this.createId(),
-    },
-  ];
+  plants: Plant[] = [];
 
   // Hilfen
 
