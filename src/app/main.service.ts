@@ -7,6 +7,7 @@ import {Router} from '@angular/router';
 export class MainService {
 
   constructor(private router: Router) {
+    this.loadData();
   }
 
   plants: Plant[] = [
@@ -53,6 +54,10 @@ export class MainService {
     this.plants.sort((prev, curr) => prev.startDate < curr.startDate ? -1 : 1);
   }
 
+  getPlantById(id: string): Plant {
+    return this.plants.find((plant) => plant.id === id);
+  }
+
   // Funktionen
 
   setNewInterval(plant: Plant): void {
@@ -60,16 +65,19 @@ export class MainService {
     date.setDate(date.getDate() + plant.interval);
     plant.startDate = date;
     this.sortPlantsByDate();
+    this.saveData();
   }
 
   deletePlant(id: string): void {
     this.plants.splice(this.plants.findIndex(p => p.id === id), 1);
     this.sortPlantsByDate();
+    this.saveData();
   }
 
   addNewPlant(plant: Plant): void {
     this.plants.push(plant);
     this.sortPlantsByDate();
+    this.saveData();
   }
 
   cancelNewPlant(): void {
@@ -80,15 +88,28 @@ export class MainService {
     this.router.navigate(['/start']);
   }
 
-  getPlantById(id: string): Plant {
-    return this.plants.find((plant) => plant.id === id);
-  }
-
   editExistingPlant(editId: string, plant: Plant): void {
     this.deletePlant(editId);
     this.addNewPlant(plant);
     this.sortPlantsByDate();
+    this.saveData();
   }
+
+
+// Speichern und Laden
+
+  saveData(): void {
+    const plantsStingified: string = JSON.stringify(this.plants);
+    localStorage.setItem('plants', plantsStingified);
+  }
+
+  loadData(): void {
+    const plantsStingified: string = localStorage.getItem('plants');
+    if (plantsStingified !== null) {
+      this.plants = JSON.parse(plantsStingified);
+    }
+  }
+
 }
 
 
