@@ -24,7 +24,7 @@ export class NewPlantComponent implements OnInit {
       name: this.newPlantName,
       room: this.newPlantRoom,
       interval: this.newPlantInterval,
-      startDate: new Date(this.newPlantStartDate),
+      startDate: this.newPlantStartDate,
       id: this.service.createId(),
     };
     this.service.addNewPlant(plant);

@@ -24,7 +24,7 @@ export class EditPlantComponent implements OnInit {
       this.editRoom = plantToEdit.room;
       this.editName = plantToEdit.name;
       this.editInterval = plantToEdit.interval;
-      this.editStartDate = this.service.dateToInputDateValue(plantToEdit.startDate);
+      this.editStartDate = plantToEdit.startDate;
     } else {
       this.router.navigate(['start']);
     }
@@ -36,7 +36,7 @@ export class EditPlantComponent implements OnInit {
       name: this.editName,
       room: this.editRoom,
       interval: this.editInterval,
-      startDate: new Date(this.editStartDate),
+      startDate: this.editStartDate,
       id: this.editId,
     };
     this.service.editExistingPlant(this.editId, plant);

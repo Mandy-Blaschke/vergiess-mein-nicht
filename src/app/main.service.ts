@@ -18,17 +18,19 @@ export class MainService {
     return Math.round(Math.random() * 10000) + '-' + Math.round(Math.random() * 10000) + '-' + Math.round(Math.random() * 10000);
   }
 
-  formatDate(date: Date): string {
-    return this.addLeadingZero(date.getDate()) + '.' + (this.addLeadingZero(date.getMonth() + 1)) + '.' + date.getFullYear();
+  formatDate(date: string): string {
+    const newFormat = date.split('-');
+    return `${newFormat[2]}.${newFormat[1]}.${newFormat[0]}`;
+    // return this.addLeadingZero(date.getDate()) + '.' + (this.addLeadingZero(date.getMonth() + 1)) + '.' + date.getFullYear();
   }
 
   addLeadingZero(num): string {
     return num < 10 ? '0' + num : num;
   }
 
-  getWeekday(date: Date): string {
+  getWeekday(date: string): string {
     const weekdays = ['Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag'];
-    return weekdays[date.getDay()];
+    return weekdays[date[0]];
   }
 
   dateToInputDateValue(date: Date): string {
@@ -48,19 +50,26 @@ export class MainService {
   setNewInterval(plant: Plant): void {
     const date = new Date();
     date.setDate(date.getDate() + plant.interval);
-    plant.startDate = date;
-    this.sortPlantsByDate();
-    this.saveData();
-  }
-
-  deletePlant(id: string): void {
-    this.plants.splice(this.plants.findIndex(p => p.id === id), 1);
+    plant.startDate = this.dateToInputDateValue(date);
     this.sortPlantsByDate();
     this.saveData();
   }
 
   addNewPlant(plant: Plant): void {
     this.plants.push(plant);
+    this.sortPlantsByDate();
+    this.saveData();
+  }
+
+  editExistingPlant(editId: string, plant: Plant): void {
+    this.deletePlant(editId);
+    this.addNewPlant(plant);
+    this.sortPlantsByDate();
+    this.saveData();
+  }
+
+  deletePlant(id: string): void {
+    this.plants.splice(this.plants.findIndex(p => p.id === id), 1);
     this.sortPlantsByDate();
     this.saveData();
   }
@@ -73,15 +82,8 @@ export class MainService {
     this.router.navigate(['/start']);
   }
 
-  editExistingPlant(editId: string, plant: Plant): void {
-    this.deletePlant(editId);
-    this.addNewPlant(plant);
-    this.sortPlantsByDate();
-    this.saveData();
-  }
 
-
-// Speichern und Laden
+// Speichern und Laden Locale Storage
 
   saveData(): void {
     const plantsStingified: string = JSON.stringify(this.plants);
@@ -102,6 +104,6 @@ export interface Plant {
   name: string;
   room: string;
   interval: number;
-  startDate: Date;
+  startDate: string;
   id: string;
 }

@@ -1,6 +1,19 @@
 
 <div class="content">
 
+  <div *ngIf="service.plants.length < 1" class="box">
+
+    <img src="assets/plant.png" >
+
+    <p>
+      Du hast bisher noch keine Pflanze angelegt. <br>
+      Drücke auf neue Pflanze und behalte den Überblick.
+    </p>
+
+    <img src="assets/plant.png" class="plant-two">
+
+  </div>
+
   <app-row></app-row>
 
 </div>
