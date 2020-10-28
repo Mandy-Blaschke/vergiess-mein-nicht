@@ -10,7 +10,7 @@ export class MainService {
     this.loadData();
   }
 
-  plants: Plant[] = [];
+  private plants: Plant[] = [];
 
   // Hilfen
 
@@ -82,6 +82,10 @@ export class MainService {
     this.router.navigate(['/start']);
   }
 
+  getAllPlants(): Plant[] {
+    return this.plants;
+  }
+
 
 // Speichern und Laden Locale Storage
 
@@ -96,7 +100,6 @@ export class MainService {
       this.plants = JSON.parse(plantsStingified);
     }
   }
-
 }
 
 

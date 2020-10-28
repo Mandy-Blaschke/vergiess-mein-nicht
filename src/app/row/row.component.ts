@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {MainService, Plant} from '../main.service';
 import {Router} from '@angular/router';
 
@@ -9,12 +9,21 @@ import {Router} from '@angular/router';
 })
 export class RowComponent implements OnInit {
 
-  constructor(public service: MainService, private router: Router) { }
+  plants: Plant[] = [];
+
+  constructor(public service: MainService, private router: Router) {
+  }
 
   ngOnInit(): void {
+    this.plants = this.service.getAllPlants();
   }
 
   editPlant(plant: Plant): void {
     this.router.navigate(['pflanze-bearbeiten', plant.id]);
+  }
+
+
+  dateIsOverdue(plant: Plant): boolean {
+    return new Date() > new Date(plant.startDate);
   }
 }

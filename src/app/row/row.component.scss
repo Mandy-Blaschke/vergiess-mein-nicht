@@ -28,6 +28,17 @@
     .row-item {
       margin: 0 10px;
       width: 25%;
+
+      .watering:active {
+        transform: rotate(-35deg);
+      }
     }
   }
+}
+
+
+.overdue {
+  color: #ff0000;
+  font-weight: bolder;
+  box-shadow: 0 0 10px rgba(255, 0, 0, 0.8) !important;
 }
