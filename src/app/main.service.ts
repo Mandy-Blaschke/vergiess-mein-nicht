@@ -14,6 +14,18 @@ export class MainService {
 
   // Hilfen
 
+  private addLeadingZero(num: number): string {
+    return num < 10 ? '0' + num : num.toString();
+  }
+
+  private dateToInputDateValue(date: Date): string {
+    return `${date.getFullYear()}-${this.addLeadingZero(date.getMonth() + 1)}-${this.addLeadingZero(date.getDate())}`;
+  }
+
+  private sortPlantsByDate(): void {
+    this.plants.sort((prev, curr) => prev.startDate < curr.startDate ? -1 : 1);
+  }
+
   createId(): string {
     return Math.round(Math.random() * 10000) + '-' + Math.round(Math.random() * 10000) + '-' + Math.round(Math.random() * 10000);
   }
@@ -24,21 +36,9 @@ export class MainService {
     // return this.addLeadingZero(date.getDate()) + '.' + (this.addLeadingZero(date.getMonth() + 1)) + '.' + date.getFullYear();
   }
 
-  addLeadingZero(num): string {
-    return num < 10 ? '0' + num : num;
-  }
-
   getWeekday(date: string): string {
     const weekdays = ['Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag'];
     return weekdays[date[0]];
-  }
-
-  dateToInputDateValue(date: Date): string {
-    return `${date.getFullYear()}-${this.addLeadingZero(date.getMonth() + 1)}-${this.addLeadingZero(date.getDate())}`;
-  }
-
-  sortPlantsByDate(): void {
-    this.plants.sort((prev, curr) => prev.startDate < curr.startDate ? -1 : 1);
   }
 
   getPlantById(id: string): Plant {
