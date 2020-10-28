@@ -13,8 +13,8 @@
     </label>
 
     <label>
-      Intervall:
-      <input [(ngModel)]="newPlantInterval" type="number" placeholder="Wie oft gießt du die Pflanze?" [class.alert]="alert && newPlantInterval === null">
+      Intervall in Tagen:
+      <input [(ngModel)]="newPlantInterval" type="number" max="365" placeholder="Wie oft gießt du die Pflanze?" [class.alert]="alert && newPlantInterval === null">
     </label>
 
     <label>
