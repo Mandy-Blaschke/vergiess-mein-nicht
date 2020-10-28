@@ -16,6 +16,42 @@
     margin: 10px 0;
     box-shadow: 0 0 10px rgba(black, 0.3);
 
+    @media(max-width: 435px) {
+      padding: 10px 10px;
+    }
+
+    .text {
+      display: flex;
+      justify-content: center;
+      width: 70%;
+
+      @media(max-width: 830px) {
+        flex-direction: column;
+        margin: auto;
+        width: 50%;
+        text-indent: 25%;
+      }
+
+      @media(max-width: 435px) {
+        width: 40%;
+        text-indent: 5%;
+      }
+    }
+
+    .icons {
+      width: 30%;
+      display: flex;
+      justify-content: center;
+
+      @media(max-width: 830px) {
+        width: 50%;
+      }
+
+      @media(max-width: 435px) {
+        width: 60%;
+      }
+    }
+
     .symbol {
       width: 35px;
       margin: 0 12px;
@@ -27,7 +63,10 @@
 
     .row-item {
       margin: 0 10px;
-      width: 25%;
+
+      @media(max-width: 435px) {
+        margin-right: 0;
+      }
 
       .watering:active {
         transform: rotate(-35deg);

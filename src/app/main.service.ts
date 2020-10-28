@@ -72,6 +72,7 @@ export class MainService {
     this.plants.splice(this.plants.findIndex(p => p.id === id), 1);
     this.sortPlantsByDate();
     this.saveData();
+    this.loadData();
   }
 
   cancelNewPlant(): void {

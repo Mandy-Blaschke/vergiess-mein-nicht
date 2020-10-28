@@ -11,13 +11,27 @@
     width: 80%;
     margin: 300px auto;
 
+    @media (max-width: 500px) {
+      margin: 200px auto;
+    }
+
     p {
       text-align: center;
     }
 
     img {
       height: 150px;
-      margin: 15px
+      margin: 15px;
+
+      @media (max-width: 470px) {
+        height: 200px;
+        width: 70px;
+      }
+
+      @media (max-width: 400px) {
+        height: 250px;
+        width: 70px;
+      }
     }
 
     .plant-two {

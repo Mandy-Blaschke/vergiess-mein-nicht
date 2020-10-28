@@ -2,18 +2,27 @@
 
   <div class="row" [class.overdue]="dateIsOverdue(plant)">
 
-    <div class="row-item">{{plant.room}}</div>
-    <div class="row-item">{{plant.name}}</div>
+    <div class="text">
 
-    <div class="watering-date row-item" >
-      <div>{{service.getWeekday(plant.startDate)}}</div>
-      <div>{{service.formatDate(plant.startDate)}}</div>
+      <div class="row-item">{{plant.room}}</div>
+      <div class="row-item">{{plant.name}}</div>
+
+      <div class="watering-date row-item">
+        <div>{{service.getWeekday(plant.startDate)}}</div>
+        <div>{{service.formatDate(plant.startDate)}}</div>
+      </div>
+
     </div>
 
-    <div class="row-item">
-      <img (click)="service.setNewInterval(plant)" src="assets/watering-can-pink.png" class="symbol watering">
-      <img (click)="editPlant(plant)" class="symbol" src="assets/settings.png">
-      <img (click)="service.deletePlant(plant.id)" src="assets/delete.png" class="symbol">
+
+    <div class="icons">
+
+      <div class="row-item">
+        <img (click)="service.setNewInterval(plant)" src="assets/watering-can-pink.png" class="symbol watering">
+        <img (click)="editPlant(plant)" src="assets/settings.png" class="symbol">
+        <img (click)="service.deletePlant(plant.id)" src="assets/delete.png" class="symbol">
+      </div>
+
     </div>
 
   </div>
