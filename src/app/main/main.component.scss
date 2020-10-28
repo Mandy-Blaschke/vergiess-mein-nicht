@@ -22,6 +22,7 @@
     img {
       height: 150px;
       margin: 15px;
+      transform: scaleX(1);
 
       @media (max-width: 470px) {
         height: 200px;

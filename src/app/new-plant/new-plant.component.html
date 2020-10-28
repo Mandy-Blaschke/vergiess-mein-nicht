@@ -4,22 +4,22 @@
 
     <label>
       Raum:
-      <input [(ngModel)]="newPlantRoom" type="text" placeholder="Wo steht die Pflanze?">
+      <input [(ngModel)]="newPlantRoom" type="text" placeholder="Wo steht die Pflanze?" [class.alert]="alert && newPlantRoom === ''">
     </label>
 
     <label>
       Bezeichnung:
-      <input [(ngModel)]="newPlantName" type="text" placeholder="Welche Pflanze ist das?">
+      <input [(ngModel)]="newPlantName" type="text" placeholder="Welche Pflanze ist das?" [class.alert]="alert && newPlantName === ''">
     </label>
 
     <label>
       Intervall:
-      <input [(ngModel)]="newPlantInterval" type="number" placeholder="Wie oft gießt du die Pflanze?">
+      <input [(ngModel)]="newPlantInterval" type="number" placeholder="Wie oft gießt du die Pflanze?" [class.alert]="alert && newPlantInterval === null">
     </label>
 
     <label>
       Datum:
-      <input [(ngModel)]="newPlantStartDate" type="date">
+      <input [(ngModel)]="newPlantStartDate" type="date" [class.alert]="alert && newPlantStartDate === ''">
     </label>
 
   </div>

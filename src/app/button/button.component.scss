@@ -16,4 +16,8 @@ button {
   &:hover {
     cursor: pointer;
   }
+
+  @media(max-height: 580px) {
+    padding: 3px 5px;
+  }
 }

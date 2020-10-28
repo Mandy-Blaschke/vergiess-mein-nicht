@@ -8,10 +8,12 @@ import {Router} from '@angular/router';
   styleUrls: ['./new-plant.component.scss']
 })
 export class NewPlantComponent implements OnInit {
-  newPlantRoom: string;
-  newPlantName: string;
-  newPlantInterval: number;
-  newPlantStartDate: string;
+  newPlantRoom = '';
+  newPlantName = '';
+  newPlantInterval = 7;
+  newPlantStartDate = '';
+
+  alert = false;
 
   constructor(public service: MainService, private router: Router) {
   }
@@ -20,14 +22,20 @@ export class NewPlantComponent implements OnInit {
   }
 
   saveNewPlant(): void {
-    const plant = {
-      name: this.newPlantName,
-      room: this.newPlantRoom,
-      interval: this.newPlantInterval,
-      startDate: this.newPlantStartDate,
-      id: this.service.createId(),
-    };
-    this.service.addNewPlant(plant);
-    this.router.navigate(['/start']);
+    if (this.newPlantRoom !== '' && this.newPlantName !== '' && this.newPlantInterval !== null && this.newPlantStartDate !== '') {
+      const plant = {
+        name: this.newPlantName,
+        room: this.newPlantRoom,
+        interval: this.newPlantInterval,
+        startDate: this.newPlantStartDate,
+        id: this.service.createId(),
+      };
+      this.service.addNewPlant(plant);
+      this.router.navigate(['/start']);
+    } else {
+      this.alert = true;
+    }
   }
+
+
 }

@@ -22,7 +22,7 @@ export class MainService {
     return `${date.getFullYear()}-${this.addLeadingZero(date.getMonth() + 1)}-${this.addLeadingZero(date.getDate())}`;
   }
 
-  private sortPlantsByDate(): void {
+  sortPlantsByDate(): void {
     this.plants.sort((prev, curr) => prev.startDate < curr.startDate ? -1 : 1);
   }
 
@@ -33,12 +33,12 @@ export class MainService {
   formatDate(date: string): string {
     const newFormat = date.split('-');
     return `${newFormat[2]}.${newFormat[1]}.${newFormat[0]}`;
-    // return this.addLeadingZero(date.getDate()) + '.' + (this.addLeadingZero(date.getMonth() + 1)) + '.' + date.getFullYear();
   }
 
   getWeekday(date: string): string {
     const weekdays = ['Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag'];
-    return weekdays[date[0]];
+    const index = new Date(date).getDay();
+    return weekdays[index];
   }
 
   getPlantById(id: string): Plant {
