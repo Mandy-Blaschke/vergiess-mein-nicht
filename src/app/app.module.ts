@@ -11,6 +11,7 @@ import { FooterComponent } from './footer/footer.component';
 import { NewPlantComponent } from './new-plant/new-plant.component';
 import { EditPlantComponent } from './edit-plant/edit-plant.component';
 import {FormsModule} from '@angular/forms';
+import { DeletionRequestComponent } from './deletion-request/deletion-request.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import {FormsModule} from '@angular/forms';
     MainComponent,
     FooterComponent,
     NewPlantComponent,
-    EditPlantComponent
+    EditPlantComponent,
+    DeletionRequestComponent
   ],
   imports: [
     BrowserModule,

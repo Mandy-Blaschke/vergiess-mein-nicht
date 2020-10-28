@@ -1,0 +1,17 @@
+<div class="content">
+
+  <div>
+    <p>Möchtest du die Pflanze</p>
+    <h1>{{plantToDelete.name}}</h1>
+    <p>in Raum</p>
+    <h1>{{plantToDelete.room}}</h1>
+    <p>wirklich</p>
+    <h1>löschen?</h1>
+  </div>
+
+</div>
+
+<div class="button-box">
+  <app-button (click)="service.deletePlant(plantToDelete.id)">Ja</app-button>
+  <app-button (click)="service.cancelAction()">Nein</app-button>
+</div>

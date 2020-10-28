@@ -26,4 +26,8 @@ export class RowComponent implements OnInit {
   dateIsOverdue(plant: Plant): boolean {
     return new Date() > new Date(plant.startDate);
   }
+
+  deletionRequest(plant: Plant): void {
+    this.router.navigate(['pflanze-loeschen', plant.id]);
+  }
 }

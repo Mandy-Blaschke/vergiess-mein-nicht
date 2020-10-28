@@ -1,0 +1,25 @@
+@use 'src/main-styles';
+
+.content {
+  margin-top: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
+  h1, p {
+    margin: 10px 0;
+  }
+
+  h1 {
+    color: main-styles.$dark-green;
+  }
+}
+
+.button-box {
+  @include main-styles.button-box;
+
+  app-button {
+    margin-right: 5px;
+  }
+}

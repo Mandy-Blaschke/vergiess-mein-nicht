@@ -73,18 +73,15 @@ export class MainService {
     this.sortPlantsByDate();
     this.saveData();
     this.loadData();
-  }
-
-  cancelNewPlant(): void {
-    this.router.navigate(['/start']);
-  }
-
-  cancelEditPlant(): void {
-    this.router.navigate(['/start']);
+    this.router.navigate(['start']);
   }
 
   getAllPlants(): Plant[] {
     return this.plants;
+  }
+
+  cancelAction(): void {
+    this.router.navigate(['/start']);
   }
 
 
